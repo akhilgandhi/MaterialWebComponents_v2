@@ -11,6 +11,7 @@ $mdc-theme--on-secondary: #FFF;
 @import "@material/drawer/mdc-drawer";
 @import "@material/list/mdc-list";
 @import "@material/top-app-bar/mdc-top-app-bar";
+@import "@material/button/mdc-button";
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -81,11 +82,34 @@ body {
   @include mdc-top-app-bar-icon-ink-color($mdc-theme--on-primary);
 }
 
+.app-bar-button {
+  height: 64px;
+  display: block;
+  @include mdc-button-ink-color($mdc-theme--on-primary);
+  @include mdc-states($mdc-theme--secondary);
+}
+
+@media only screen and (max-width: 767px) {
+  .app-bar-button {
+    display: none;
+  }
+}
+
+.demo-menu {
+  display: none;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .demo-menu {
+    display: block;
+  }
+}
+
 .main-content {
   position: relative;
   margin-top: 72px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 24px;
+  margin-right: 24px;
 }
 
 .mdc-drawer {
@@ -99,6 +123,18 @@ body {
     padding-top: 40px;
     background-color: $mdc-theme--secondary;
     height: 120px;
+  }
+
+  .mdc-list {
+    padding: 0;
+    .mdc-list-item {
+      height: 60px;
+      padding: 0;
+      margin: 0;
+      .mdc-list-item__text {
+        padding-left: 20px;
+      }
+    }
   }
 }
 
