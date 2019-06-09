@@ -1,10 +1,108 @@
-@import "@material/button/mdc-button";
+/* Theme */
+$mdc-theme--primary: #FAFAFA;
+$mdc-theme--primary-light: #FFF;
+$mdc-theme--primary-dark: #C7C7C7;
+$mdc-theme--on-primary: #000;
+$mdc-theme--secondary: #304FFE;
+$mdc-theme--secondary-light: #7A7CFF;
+$mdc-theme--secondary-dark: #0026CA;
+$mdc-theme--on-secondary: #FFF;
+
+@import "@material/drawer/mdc-drawer";
+@import "@material/list/mdc-list";
+@import "@material/top-app-bar/mdc-top-app-bar";
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* My Styles */
 
 body {
-  color: blue;
+  display: flex;
+  height: 100vh;
 }
 
-.foo-button {
-  @include mdc-button-ink-color(teal);
-  @include mdc-states(teal);
+.mdc-drawer-app-content {
+  flex: auto;
+  overflow: auto;
+  position: relative;
 }
+
+.app-bar {
+  position: absolute;
+  @include mdc-top-app-bar-fill-color($mdc-theme--primary);
+  @include mdc-top-app-bar-ink-color($mdc-theme--on-primary);
+  @include mdc-top-app-bar-icon-ink-color($mdc-theme--on-primary);
+}
+
+.main-content {
+  position: relative;
+  margin-top: 72px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.mdc-drawer {
+  @include mdc-drawer-activated-overlay-color($mdc-theme--secondary);
+  @include mdc-drawer-item-activated-text-ink-color($mdc-theme--on-primary);
+  @include mdc-drawer-title-ink-color($mdc-theme--on-secondary);
+  @include mdc-drawer-subtitle-ink-color($mdc-theme--on-secondary);
+  @include mdc-drawer-border-color($mdc-theme--primary);
+  
+  .mdc-drawer__header {
+    padding-top: 40px;
+    background-color: $mdc-theme--secondary;
+    height: 120px;
+  }
+}
+
+/*// only apply this style if below top app bar
+.mdc-top-app-bar {
+  z-index: 7;
+}*/
